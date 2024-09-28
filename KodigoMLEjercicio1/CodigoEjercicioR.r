@@ -1,15 +1,16 @@
 library(ggplot2)
 library(plyr)
 library(dplyr)
-
+#1)Carga de datos
 #Se hacen los ajustes para poder leer el archivo csv
 getwd()
+#Me muevo a la carpeta donde tengo el Archivo para leerlo despues
 setwd("/home/manueltrigueros/Documents/KodigoMachine/Entregable1/KodigoMLEjercicio1")
 getwd()
 
 #Se lee el DataSet y no se carga todo 
 dfArchivoKaggle <-read.table("vgsales.csv",sep = ",", header = TRUE, fill = TRUE)
-
+#2)Exploracion de Datos
 #Se muestran los primeros 5 Registros
 head(dfArchivoKaggle,5)
 
@@ -39,19 +40,17 @@ total_na <- sum(is.na(dfArchivoKaggle))
 cat("Total de registros:", total_registros, "\n")
 cat("Total de valores nulos:", total_na, "\n")
 
+#3) Limpieza de Datos
 dfArchivoKaggle <- na.omit(dfArchivoKaggle)
-
-
 # Número total de registros
 total_registros <- nrow(dfArchivoKaggle)
-
 # Conteo de NA
 total_na <- sum(is.na(dfArchivoKaggle))
-
 # Mostrar información
 cat("Total de registros:", total_registros, "\n")
 cat("Total de valores nulos:", total_na, "\n")
 
+#4)Visualizacion del Resultado
 #Conteo de Columna Plataforma
 conteo_platform <- table(dfArchivoKaggle$Platform)
 
